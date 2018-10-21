@@ -21,7 +21,7 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 
 ********************************************************************************
 ## Status
-[![Latest Stable Version](https://poser.pugx.org/the-muda-organization/youtube-lazyload/v/stable)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
+[![Latest Stable Version](https://poser.pugx.org/the-muda-organization/youtube-lazyload/version)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 [![Latest Unstable Version](https://poser.pugx.org/the-muda-organization/youtube-lazyload/v/unstable)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 
 [![Total Downloads](https://poser.pugx.org/the-muda-organization/youtube-lazyload/downloads)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
