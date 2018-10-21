@@ -8,6 +8,7 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 - [Status](#status)
 - [Installation](#installation)
 - [How to Use](#how-to-use)
+- [Features](#features)
 - [Copyright and license](#copyright-and-license)
 
 
@@ -45,23 +46,38 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 ********************************************************************************
 ## How to Use
 
-1. Add the folowing code to add a video:
+1. Get Youtube ID of your movie, example: ``d4AmYBhGBfM``
+2. Add the folowing code to embed a video:
 ```html
 <div class="embed-yt-lazy" data-embed-yt-lazy="d4AmYBhGBfM" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
 ```
+3. Name your thumbnail using Youtube ID ``d4AmYBhGBfM.jpg`` - to use other file types change file type in JS file
+4. Place your thumbnail in a folder specified in JS file
 
-2. 
 
-#### Explanation
+********************************************************************************
+## Features
 
 Attribute | Explanation
 ------------ | -------------
 ``class="embed-yt-lazy"`` | Main container. You can add additional styling classes ex. border, box-shadow etc.
 ``data-embed-yt-lazy="d4AmYBhGBfM"`` | Youtube video ID
-``data-embed-yt-lazy-random=""`` | If you need to add more thumbnails here you can randomize which one is displayed.
+``data-embed-yt-lazy-random=""`` | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom prefix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumb 2 use ``data-embed-yt-lazy-random="--2"`` and so on. You can randomize numbers using ``<?php echo rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
 ``data-embed-yt-lazy-logo="white"`` | Youtube logo color. Available: white, black, red
 
 
+********************************************************************************
+## CSS Classes
+
+CSS class | Explanation
+------------ | -------------
+``.embed-yt-lazy`` | main container
+``.embed-yt-lazy-img`` | thumbnail
+``.embed-yt-lazy-play-btn`` | play button (black)
+``.embed-yt-lazy-play-btn:hover`` | play button on hover (red)
+``.embed-yt-lazy-logo`` | Youtube logo
+``.embed-yt-lazy-logo:hover`` | Youtube logo on hover
+``.embed-yt-lazy iframe`` | Youtube embeded iframe after click
 
 
 ********************************************************************************
