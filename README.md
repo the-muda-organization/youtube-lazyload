@@ -15,6 +15,7 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 - [Versioning](#versioning)
 - [Changelog](#changelog)
 - [Team](#team)
+- [Code of Conduct](#code-of-conduct)
 - [Copyright and License](#copyright-and-license)
 
 
@@ -138,6 +139,12 @@ For last releases see detailed [CHANGELOG](https://github.com/the-muda-organizat
 ********************************************************************************
 ## Team
 -  [Jakub Muda](https://github.com/jakubmuda)
+
+
+********************************************************************************
+## Code of conduct
+We will behave ourselves if you behave yourselves. For more details see our
+[CODE_OF_CONDUCT.md](https://github.com/the-muda-organization/youtube-lazyload/blob/master/CODE_OF_CONDUCT.md).
 
 
 ********************************************************************************
