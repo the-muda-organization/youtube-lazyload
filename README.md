@@ -32,7 +32,7 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 ## Quick Start
 
 Several options are available:
-- [Download the latest release.](https://github.com/the-muda-organization/youtube-lazyload/??????.zip)
+- [Download the latest release.](https://github.com/the-muda-organization/youtube-lazyload/archive/master.zip)
 - Clone the repo: `git clone https://github.com/twbs/bootstrap.git`
 - Install with [Composer](https://getcomposer.org/): `composer require the-muda-organization/youtube-lazyload`
 
