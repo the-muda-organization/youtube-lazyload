@@ -4,12 +4,13 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 
 ********************************************************************************
 ## Table of contents
-- [Quick start](#quick-start)
 - [Status](#status)
+- [Quick Start](#quick-start)
 - [Installation](#installation)
 - [How to Use](#how-to-use)
 - [Features](#features)
-- [Copyright and license](#copyright-and-license)
+- [CSS Classes](#css-classes)
+- [Copyright and License](#copyright-and-license)
 
 
 ********************************************************************************
@@ -26,6 +27,36 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 
 [![License Code](https://poser.pugx.org/the-muda-organization/youtube-lazyload/license)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 
+
+********************************************************************************
+## Quick Start
+
+Several options are available:
+- [Download the latest release.](https://github.com/the-muda-organization/youtube-lazyload/??????.zip)
+- Clone the repo: `git clone https://github.com/twbs/bootstrap.git`
+- Install with [Composer](https://getcomposer.org/): `composer require the-muda-organization/youtube-lazyload`
+
+
+********************************************************************************
+## What's included
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+
+For future versions ``ico/logo.svg`` will not be changed.
+```
+yt-lazyload/
+│
+├── ico/
+│   ├── logo.svg
+│   └── logo-not-minified.svg
+│
+└── 2.1.0/
+    ├── css/
+    │   ├── yt-lazyload.css
+    │   └── yt-lazyload.min.css
+    └── js/
+        ├── yt-lazyload.js
+        └── yt-lazyload.min.js
+```
 
 ********************************************************************************
 ## Installation
@@ -62,7 +93,7 @@ Attribute | Explanation
 ------------ | -------------
 ``class="embed-yt-lazy"`` | Main container. You can add additional styling classes ex. border, box-shadow etc.
 ``data-embed-yt-lazy="d4AmYBhGBfM"`` | Youtube video ID
-``data-embed-yt-lazy-random=""`` | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom prefix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumb 2 use ``data-embed-yt-lazy-random="--2"`` and so on. You can randomize numbers using ``<?php echo rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
+``data-embed-yt-lazy-random=""`` | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom prefix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumbnail 2 use ``data-embed-yt-lazy-random="--2"`` and so on. You can randomize numbers using ``<?php echo rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
 ``data-embed-yt-lazy-logo="white"`` | Youtube logo color. Available: white, black, red
 
 
