@@ -13,6 +13,7 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 - [Features](#features)
 - [CSS Classes](#css-classes)
 - [Versioning](#versioning)
+- [Changelog](#changelog)
 - [Team](#team)
 - [Copyright and License](#copyright-and-license)
 
@@ -128,6 +129,9 @@ CSS class | Explanation
 Youtube LazyLoad will be maintained under the Semantic Versioning guidelines as much as possible. Releases will be numbered with the following format:
 ```<major>.<minor>.<patch>```
 
+
+********************************************************************************
+## Changelog
 For last releases see detailed [CHANGELOG](https://github.com/the-muda-organization/youtube-lazyload/blob/master/CHANGELOG.md).
 
 
