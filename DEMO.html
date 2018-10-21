@@ -1,0 +1,261 @@
+<!--
+ *  Youtube LazyLoad 
+ *  v.2.x.x
+ *  https://github.com/the-muda-organization/youtube-lazyload
+ *  MIT License
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<style>
+/*!
+ *  Youtube LazyLoad 
+ *  v.2.1.0
+ *  https://github.com/the-muda-organization/youtube-lazyload
+ *  MIT License
+ */
+
+/*youtube lazyload container*/
+.embed-yt-lazy{
+    width:100%;
+    position:relative!important;
+    overflow:hidden!important;
+    cursor:pointer!important;
+    -moz-user-select:none!important;
+    -ms-user-select:none!important;
+    user-select:none!important;
+}
+
+
+/*image thumbnail*/
+.embed-yt-lazy-img{
+    width:100%!important;
+    display:block!important;
+}
+
+/*play-btn*/
+.embed-yt-lazy-play-btn{
+    width:100%!important;
+    height:100%!important;
+    position:absolute!important;
+    top:0!important;
+    left:0!important;
+    z-index:1!important;
+    background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 141'%3E%3Cpath fill='rgba(0,0,0,.65)' d='m4 119c2 9 9 15 18 18 15 4 78 4 78 4s63 0 78-4c9-3 16-9 18-18 4-16 4-49 4-49s0-32-4-48c-2-9-9-15-18-18-15-4-78-4-78-4s-63 0-78 4c-9 3-16 9-18 18-4 16-4 48-4 48s0 33 4 49z'/%3E%3Cpolygon fill='%23fff' points='132 70 80 41 80 100'/%3E%3C/svg%3E") 50%/calc(35px + 10%) auto no-repeat;
+}
+
+/*play-btn:hover*/
+.embed-yt-lazy-play-btn:hover{
+    background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 141'%3E%3Cpath fill='red' d='m4 119c2 9 9 15 18 18 15 4 78 4 78 4s63 0 78-4c9-3 16-9 18-18 4-16 4-49 4-49s0-32-4-48c-2-9-9-15-18-18-15-4-78-4-78-4s-63 0-78 4c-9 3-16 9-18 18-4 16-4 48-4 48s0 33 4 49z'/%3E%3Cpolygon fill='%23fff' points='132 70 80 41 80 100'/%3E%3C/svg%3E") 50%/calc(35px + 10%) auto no-repeat;
+}
+
+/*logo*/
+.embed-yt-lazy-logo{
+    width:30%;
+    min-width:95px;
+    max-width:215px;
+    position:absolute!important;
+    right:4%!important;
+    bottom:4%!important;
+    z-index:2!important;
+    opacity:.75!important;
+    transition:opacity .3s!important;
+}
+
+/*logo:hover*/
+.embed-yt-lazy-logo:hover{
+    opacity:1!important;
+    transition:opacity .3s!important;
+}
+
+/*iframe*/
+.embed-yt-lazy iframe{
+    width:100%!important;
+    height:100%!important;
+    position:absolute!important;
+    top:0!important;
+    left:0!important;
+    z-index:3!important;
+    border:0!important;
+}
+
+#nologo .embed-yt-lazy-logo{display:none}
+</style>
+</head>
+<body class="bg-dark py-5">
+
+<main class="container-fluid" style="max-width:1000px!important">
+    
+    
+    <section class="row">
+        
+        <article class="col-xl-6 mb-5">
+            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-6 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="z0HRB5iJQrw" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="black"></div>
+        </article>
+        
+        <article class="col-xl-6 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-6 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
+        </article>
+        
+    </section>
+    <section class="row">
+        
+        <article class="col-xl-4 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-4 mb-5">
+            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="z0HRB5iJQrw" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="black"></div>
+        </article>
+        
+        <article class="col-xl-4 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
+        </article>
+        
+    </section>
+    <section class="row">
+        
+        <article class="col-xl-3 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-3 mb-5">
+            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="P0LUnxUeR1I" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-3 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-3 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="SACu6d2pdOI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+    </section>
+    <section id="nologo" class="row">
+        
+        <article class="col-xl-2 mb-5">
+            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="SACu6d2pdOI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-2 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-2 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="P0LUnxUeR1I" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-2 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-2 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="9UQ70AAMuyo" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+        <article class="col-xl-2 mb-5">
+            <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+        </article>
+        
+    </section>
+    <section class="row">
+        
+        <article class="col-xl-4">
+            <div class="card bg-light">
+                <div class="card-header">2016-05-20</div>
+                
+                <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
+                
+                <div class="card-body h5 m-0">Lorem Ipsum Dolor</div>
+            </div>
+        </article>
+        
+        <article class="col-xl-4">
+            <div class="card bg-light">
+                <div class="card-header">2016-05-20</div>
+                
+                <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
+                
+                <div class="card-body h5 m-0">Lorem Ipsum Dolor</div>
+            </div>
+        </article>
+        
+        <article class="col-xl-3">
+            <div class="card bg-light">
+                
+                <div class="embed-yt-lazy" data-embed-yt-lazy="UXylDrsmy_E" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+                
+                <div class="card-body h5 m-0">Lorem Ipsum Dolor sit Amet</div>
+            </div>
+        </article>
+        
+        
+    </section>
+    
+</main>
+
+<script>
+/*!
+ *  Youtube LazyLoad 
+ *  v.2.1.0
+ *  https://github.com/the-muda-organization/youtube-lazyload
+ *  MIT License
+ */
+(function(){
+    var youtube = document.querySelectorAll(".embed-yt-lazy");
+    
+    for (var i = 0; i < youtube.length; i++){
+        
+        //youtube thumbnail
+		var image = new Image();
+                image.src = "https://img.youtube.com/vi/" + youtube[i].dataset.embedYtLazy + "/maxresdefault.jpg";
+                image.setAttribute("alt","");
+                image.classList.add("embed-yt-lazy-img");
+                
+                //load image after page is loaded (???)
+                image.addEventListener("load",function(){
+					youtube[i].appendChild(image);
+				}(i));
+                
+        //youtube play btn
+        var playbtn = document.createElement('div');
+                playbtn.classList.add("embed-yt-lazy-play-btn");
+                youtube[i].appendChild(playbtn);
+                
+        //youtube logo link
+        var ytlogo = new Image();
+        var ytlogolink =  document.createElement('a');
+                ytlogolink.href = "https://youtu.be/" + youtube[i].dataset.embedYtLazy;
+                ytlogolink.target = '_blank';
+                ytlogo.src = "https://muda.ovh/lib/yt-lazyload/ico/logo.svg#" + youtube[i].dataset.embedYtLazyLogo;
+                ytlogo.classList.add("embed-yt-lazy-logo");
+                ytlogolink.appendChild(ytlogo);
+                youtube[i].appendChild(ytlogolink);
+        
+        
+        //create iframe onclick play-btn
+        youtube[i].addEventListener("click",function(){
+            var iframe = document.createElement("iframe");
+                    iframe.setAttribute("src","https://www.youtube-nocookie.com/embed/" + this.dataset.embedYtLazy + "?controls=1&amp;showinfo=0&amp;autoplay=1");
+                    iframe.setAttribute("allow","autoplay;encrypted-media");
+                    iframe.setAttribute("allowfullscreen","");
+                    this.appendChild(iframe);
+        });
+        
+    };
+})();
+</script>
+
+</body>
+</html>
