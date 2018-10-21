@@ -36,10 +36,10 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
     3. **line 34** - change "https://example.com/yt-lazyload/ico/logo.svg#" to custom folder to youtube logo
 4. Minify JS and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/2.1.0/js/yt-lazyload.min.js)
 5. Add CSS and JS<br>
-``
-    &lt;link href="" rel="stylesheet">
-    aaa
-``
+```html
+    <link href="https://example.com/yt-lazyload/2.1.0/css/yt-lazyload.min.css" rel="stylesheet">
+    <script src="https://example.com/yt-lazyload/2.1.0/js/yt-lazyload.min.js"></script>
+```
 
 
 ********************************************************************************
