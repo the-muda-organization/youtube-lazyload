@@ -1,6 +1,7 @@
 # Youtube LazyLoad
 LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 
+## [View Preview](http://htmlpreview.github.io/?https://github.com/the-muda-organization/youtube-lazyload/blob/master/DEMO.html)
 <img src="https://github.com/the-muda-organization/youtube-lazyload/blob/master/PREVIEW.jpg?raw=true" alt="" style="width:100%;display:block;">
 
 ********************************************************************************
