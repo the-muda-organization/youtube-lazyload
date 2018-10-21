@@ -6,10 +6,14 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 ## Table of contents
 - [Status](#status)
 - [Quick Start](#quick-start)
+- [What's included](#whats-included)
+- [Bugs and feature requests](#bugs-and-feature-requests)
 - [Installation](#installation)
 - [How to Use](#how-to-use)
 - [Features](#features)
 - [CSS Classes](#css-classes)
+- [Versioning](#versioning)
+- [Team](#team)
 - [Copyright and License](#copyright-and-license)
 
 
@@ -33,7 +37,7 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 
 Several options are available:
 - [Download the latest release.](https://github.com/the-muda-organization/youtube-lazyload/archive/master.zip)
-- Clone the repo: `git clone https://github.com/twbs/bootstrap.git`
+- Clone the repo: `git clone https://github.com/the-muda-organization/youtube-lazyload.git`
 - Install with [Composer](https://getcomposer.org/): `composer require the-muda-organization/youtube-lazyload`
 
 
@@ -42,6 +46,8 @@ Several options are available:
 Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 For future versions ``ico/logo.svg`` will not be changed.
+
+There are no dependencies. No jQuery or other plugins required. See below for [Installation Guide](#installation) and [How to Use](#how-to-use)
 ```
 yt-lazyload/
 │
@@ -57,6 +63,12 @@ yt-lazyload/
         ├── yt-lazyload.js
         └── yt-lazyload.min.js
 ```
+
+
+********************************************************************************
+## Bugs and feature requests
+Have a bug or a feature request? Before opening a new issue search for existing and closed issues. If your problem or idea is not addressed yet, [open a new issue](https://github.com/the-muda-organization/youtube-lazyload/issues/new).
+
 
 ********************************************************************************
 ## Installation
@@ -109,6 +121,19 @@ CSS class | Explanation
 ``.embed-yt-lazy-logo`` | Youtube logo
 ``.embed-yt-lazy-logo:hover`` | Youtube logo on hover
 ``.embed-yt-lazy iframe`` | Youtube embeded iframe after click
+
+
+********************************************************************************
+## Versioning
+Youtube LazyLoad will be maintained under the Semantic Versioning guidelines as much as possible. Releases will be numbered with the following format:
+```<major>.<minor>.<patch>```
+
+For last releases see detailed [CHANGELOG](https://github.com/the-muda-organization/youtube-lazyload/blob/master/CHANGELOG.md).
+
+
+********************************************************************************
+## Team
+-  [Jakub Muda](https://github.com/jakubmuda)
 
 
 ********************************************************************************
