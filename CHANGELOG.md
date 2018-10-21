@@ -1,4 +1,4 @@
-# *Youtube Embed LazyLoad*
+# Youtube Embed LazyLoad
 ## CHANGELOG:
 
 
