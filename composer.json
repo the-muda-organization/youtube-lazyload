@@ -1,0 +1,22 @@
+{
+    "name": "the-muda-organization/youtube-lazyload",
+    "description": "LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS",
+    "keywords": [
+        "html5",
+        "youtube",
+        "lazyload",
+        "lazyload-iframes",
+        "youtube-lazyload",
+        "css",
+        "js",
+        "muda"
+    ],
+    "readme": "/README.md",
+    "authors": [
+        {
+            "name": "Jakub Muda",
+            "email": "info@muda.pl"
+        },
+    ],
+    "license": "MIT"
+}
