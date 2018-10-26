@@ -11,6 +11,16 @@
 - UPDATE    - merge .embed-yt-lazy-play-btn and .embed-yt-lazy-play-btn:hover so background is not repeated  (???)
 
 
+********************************************************************************
+********************************************************************************
+###### October 26th, 2018
+## v.2.1.1 - PATCH
+
+#### JS:
+
+###### Updated:
+- ico folder with youtube logo has new location - it was added to folder 2.1.1 and it's at the same level as css and js folders
+
 
 ********************************************************************************
 ********************************************************************************
