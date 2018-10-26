@@ -107,7 +107,7 @@ Attribute | Explanation
 ------------ | -------------
 ``class="embed-yt-lazy"`` | Main container. You can add additional styling classes ex. border, box-shadow etc.
 ``data-embed-yt-lazy="d4AmYBhGBfM"`` | Youtube video ID
-``data-embed-yt-lazy-random=""`` | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom prefix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumbnail 2 use ``data-embed-yt-lazy-random="--2"`` and so on. You can randomize numbers using ``<?php echo rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
+``data-embed-yt-lazy-random=""`` | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom suffix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumbnail 2 use ``data-embed-yt-lazy-random="--2"`` and so on. You can randomize numbers using ``<?php echo rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
 ``data-embed-yt-lazy-logo="white"`` | Youtube logo color. Available: white, black, red
 
 
