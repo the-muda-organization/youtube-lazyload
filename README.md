@@ -59,7 +59,7 @@ yt-lazyload/
     │
     ├── ico/
     │   ├── logo.svg
-    │   └── logo-not-minified.svg
+    │   └── logo.min.svg
     │
     └── js/
         ├── yt-lazyload.js
