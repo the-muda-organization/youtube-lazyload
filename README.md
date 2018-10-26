@@ -50,15 +50,17 @@ For future versions ``ico/logo.svg`` will not be changed.
 There are no dependencies. No jQuery or other plugins required. See below for [Installation Guide](#installation) and [How to Use](#how-to-use)
 ```
 yt-lazyload/
-│
-├── ico/
-│   ├── logo.svg
-│   └── logo-not-minified.svg
-│
-└── 2.1.0/
+ │
+ └─ 2.x.x/
+    │
     ├── css/
     │   ├── yt-lazyload.css
     │   └── yt-lazyload.min.css
+    │
+    ├── ico/
+    │   ├── logo.svg
+    │   └── logo-not-minified.svg
+    │
     └── js/
         ├── yt-lazyload.js
         └── yt-lazyload.min.js
