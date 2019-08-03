@@ -112,16 +112,16 @@ Attribute | Explanation
 ********************************************************************************
 ## CSS Classes
 
-CSS class | Explanation
------------- | -------------
-``.yt-lazyload``                | main container
-``.yt-lazyload-img``            | thumbnail
-``.yt-lazyload-playbtn``        | play button (black)
-``.yt-lazyload-playbtn:hover``  | play button on hover (red)
-``.yt-lazyload-logo``           | Youtube logo
-``.yt-lazyload-logo:hover``     | Youtube logo on hover
-``.yt-lazyload[data-logo="0"]`` | Youtube logo color based on data attribute
-``.yt-lazy iframe``             | Youtube embeded iframe after click
+CSS class                                          | Explanation
+------------                                       | -------------
+``.yt-lazyload``                                   | main container
+``.yt-lazyload-img``                               | thumbnail
+``.yt-lazyload-playbtn``                           | play button (black)
+``.yt-lazyload-playbtn:hover``                     | play button on hover (red)
+``.yt-lazyload-logo``                              | Youtube logo
+``.yt-lazyload-logo:hover``                        | Youtube logo on hover
+``.yt-lazyload[data-logo="0"] .yt-lazyload-logo``  | Youtube logo color based on data attribute
+``.yt-lazy iframe``                                | Youtube embeded iframe after click
 
 
 ********************************************************************************
