@@ -1,6 +1,6 @@
 <!--
  *  Youtube LazyLoad 
- *  v.2.x.x
+ *  v.3.0.0
  *  https://github.com/the-muda-organization/youtube-lazyload
  *  MIT License
 -->
@@ -8,17 +8,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <style>
-/*!
- *  Youtube LazyLoad 
- *  v.2.1.1
- *  https://github.com/the-muda-organization/youtube-lazyload
- *  MIT License
- */
 
 /*youtube lazyload container*/
-.embed-yt-lazy{
+.yt-lazyload{
     width:100%;
     position:relative!important;
     overflow:hidden!important;
@@ -28,15 +22,14 @@
     user-select:none!important;
 }
 
-
 /*image thumbnail*/
-.embed-yt-lazy-img{
+.yt-lazyload-img{
     width:100%!important;
     display:block!important;
 }
 
 /*play-btn*/
-.embed-yt-lazy-play-btn{
+.yt-lazyload-playbtn{
     width:100%!important;
     height:100%!important;
     position:absolute!important;
@@ -47,31 +40,43 @@
 }
 
 /*play-btn:hover*/
-.embed-yt-lazy-play-btn:hover{
+.yt-lazyload-playbtn:hover{
     background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 141'%3E%3Cpath fill='red' d='m4 119c2 9 9 15 18 18 15 4 78 4 78 4s63 0 78-4c9-3 16-9 18-18 4-16 4-49 4-49s0-32-4-48c-2-9-9-15-18-18-15-4-78-4-78-4s-63 0-78 4c-9 3-16 9-18 18-4 16-4 48-4 48s0 33 4 49z'/%3E%3Cpolygon fill='%23fff' points='132 70 80 41 80 100'/%3E%3C/svg%3E") 50%/calc(35px + 10%) auto no-repeat;
 }
 
 /*logo*/
-.embed-yt-lazy-logo{
+.yt-lazyload-logo{
+    display:block;
     width:30%;
     min-width:95px;
+    min-height:22px;
     max-width:215px;
+    padding-top:6.8%!important; /*22.341822% * 0,3 (equivalent to 30%)*/
     position:absolute!important;
     right:4%!important;
     bottom:4%!important;
     z-index:2!important;
+    background-position:50%!important;
+    background-size:100%!important;
+    background-repeat:no-repeat!important;
     opacity:.75!important;
     transition:opacity .3s!important;
 }
 
+/*no logo*/.yt-lazyload[data-logo="0"] .yt-lazyload-logo{display:none!important}
+/* black */.yt-lazyload[data-logo="1"] .yt-lazyload-logo{background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380.9 85.1'%3E%3Crect fill='%23fff' width='50' height='50' x='35' y='18'/%3E%3Cpath transform='scale(.1)' d='m1190 133c-14-52-55-94-107-108-95-25-475-25-475-25s-380 0-475 25c-52 14-94 56-108 108-25 95-25 292-25 292s0 198 25 293c14 52 56 94 108 107 95 26 475 26 475 26s380 0 475-26c52-13 93-55 107-107 26-95 26-293 26-293s0-197-26-292zm-704 475v-365l316 182-316 183z'/%3E%3Cpath d='m176.3 77.4c-2.4-1.6-4.1-4.1-5.1-7.6-1-3.4-1.5-8-1.5-13.6v-7.7c0-5.7 0.6-10.3 1.7-13.8 1.2-3.5 3-6 5.4-7.6 2.5-1.6 5.7-2.4 9.7-2.4 3.9 0 7.1 0.8 9.5 2.4s4.1 4.2 5.2 7.6 1.7 8 1.7 13.8v7.7c0 5.7-0.5 10.2-1.6 13.7-1.1 3.4-2.8 6-5.2 7.6s-5.7 2.4-9.8 2.4c-4.2-0.1-7.6-0.9-10-2.5zm13.5-8.4c0.7-1.7 1-4.6 1-8.5v-16.6c0-3.8-0.3-6.6-1-8.4s-1.8-2.6-3.5-2.6c-1.6 0-2.8 0.9-3.4 2.6-0.7 1.8-1 4.6-1 8.4v16.6c0 3.9 0.3 6.8 1 8.5 0.6 1.7 1.8 2.6 3.5 2.6 1.6 0 2.7-0.8 3.4-2.6z'/%3E%3Cpath d='m360.9 56.3v2.7c0 3.4 0.1 6 0.3 7.7s0.6 3 1.3 3.7c0.6 0.8 1.6 1.2 3 1.2 1.8 0 3-0.7 3.7-2.1s1-3.7 1.1-7l10.3 0.6c0.1 0.5 0.1 1.1 0.1 1.9 0 4.9-1.3 8.6-4 11s-6.5 3.6-11.4 3.6c-5.9 0-10-1.9-12.4-5.6s-3.6-9.4-3.6-17.2v-9.3c0-8 1.2-13.8 3.7-17.5s6.7-5.5 12.6-5.5c4.1 0 7.3 0.8 9.5 2.3s3.7 3.9 4.6 7c0.9 3.2 1.3 7.6 1.3 13.2v9.1h-20.1zm1.5-22.4c-0.6 0.8-1 2-1.2 3.7s-0.3 4.3-0.3 7.8v3.8h8.8v-3.8c0-3.4-0.1-6-0.3-7.8s-0.7-3-1.3-3.7-1.6-1.1-2.8-1.1c-1.4-0.1-2.3 0.3-2.9 1.1z'/%3E%3Cpath d='m147.1,55.3L133.5,6h11.9l4.8,22.3c1.2,5.5,2.1,10.2,2.7,14.1h0.3c0.4-2.8,1.3-7.4,2.7-14l5-22.4h11.9 L159,55.3v23.6h-11.8V55.3z'/%3E%3Cpath d='m241.6 25.7v53.3h-9.4l-1-6.5h-0.3c-2.5 4.9-6.4 7.4-11.5 7.4-3.5 0-6.1-1.2-7.8-3.5s-2.5-5.9-2.5-10.9v-39.8h12v39.1c0 2.4 0.3 4.1 0.8 5.1s1.4 1.5 2.6 1.5c1 0 2-0.3 3-1 1-0.6 1.7-1.4 2.1-2.4v-42.3h12z'/%3E%3Cpath d='m303.1 25.7v53.3h-9.4l-1-6.5h-0.3c-2.5 4.9-6.4 7.4-11.5 7.4-3.5 0-6.1-1.2-7.8-3.5s-2.5-5.9-2.5-10.9v-39.8h12v39.1c0 2.4 0.3 4.1 0.8 5.1s1.4 1.5 2.6 1.5c1 0 2-0.3 3-1 1-0.6 1.7-1.4 2.1-2.4v-42.3h12z'/%3E%3Cpath d='m274.2,15.7h-11.9v63.2h-11.7V15.7h-11.9V6h35.5V15.7z'/%3E%3Cpath d='m342.8 34.2c-0.7-3.4-1.9-5.8-3.5-7.3s-3.9-2.3-6.7-2.3c-2.2 0-4.3 0.6-6.2 1.9-1.9 1.2-3.4 2.9-4.4 4.9h-0.1v-28.1h-11.6v75.6h9.9l1.2-5h0.3c0.9 1.8 2.3 3.2 4.2 4.3 1.9 1 3.9 1.6 6.2 1.6 4.1 0 7-1.9 8.9-5.6s2.9-9.6 2.9-17.5v-8.4c-0.1-6.1-0.4-10.8-1.1-14.1zm-11 21.7c0 3.9-0.2 6.9-0.5 9.1s-0.9 3.8-1.6 4.7c-0.8 0.9-1.8 1.4-3 1.4-1 0-1.9-0.2-2.7-0.7s-1.5-1.2-2-2.1v-30.2c0.4-1.4 1.1-2.6 2.1-3.6 1-0.9 2.1-1.4 3.2-1.4 1.2 0 2.2 0.5 2.8 1.4 0.7 1 1.1 2.6 1.4 4.8 0.3 2.3 0.4 5.5 0.4 9.6v7z'/%3E%3C/svg%3E")!important}
+/*  red  */.yt-lazyload[data-logo="2"] .yt-lazyload-logo{background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380.9 85.1'%3E%3Crect fill='%23fff' width='50' height='50' x='35' y='18'/%3E%3Cpath fill='%23f00' transform='scale(.1)' d='m1190 133c-14-52-55-94-107-108-95-25-475-25-475-25s-380 0-475 25c-52 14-94 56-108 108-25 95-25 292-25 292s0 198 25 293c14 52 56 94 108 107 95 26 475 26 475 26s380 0 475-26c52-13 93-55 107-107 26-95 26-293 26-293s0-197-26-292zm-704 475v-365l316 182-316 183z'/%3E%3Cg fill='%23282828'%3E%3Cpath d='m176.3 77.4c-2.4-1.6-4.1-4.1-5.1-7.6-1-3.4-1.5-8-1.5-13.6v-7.7c0-5.7 0.6-10.3 1.7-13.8 1.2-3.5 3-6 5.4-7.6 2.5-1.6 5.7-2.4 9.7-2.4 3.9 0 7.1 0.8 9.5 2.4s4.1 4.2 5.2 7.6 1.7 8 1.7 13.8v7.7c0 5.7-0.5 10.2-1.6 13.7-1.1 3.4-2.8 6-5.2 7.6s-5.7 2.4-9.8 2.4c-4.2-0.1-7.6-0.9-10-2.5zm13.5-8.4c0.7-1.7 1-4.6 1-8.5v-16.6c0-3.8-0.3-6.6-1-8.4s-1.8-2.6-3.5-2.6c-1.6 0-2.8 0.9-3.4 2.6-0.7 1.8-1 4.6-1 8.4v16.6c0 3.9 0.3 6.8 1 8.5 0.6 1.7 1.8 2.6 3.5 2.6 1.6 0 2.7-0.8 3.4-2.6z'/%3E%3Cpath d='m360.9 56.3v2.7c0 3.4 0.1 6 0.3 7.7s0.6 3 1.3 3.7c0.6 0.8 1.6 1.2 3 1.2 1.8 0 3-0.7 3.7-2.1s1-3.7 1.1-7l10.3 0.6c0.1 0.5 0.1 1.1 0.1 1.9 0 4.9-1.3 8.6-4 11s-6.5 3.6-11.4 3.6c-5.9 0-10-1.9-12.4-5.6s-3.6-9.4-3.6-17.2v-9.3c0-8 1.2-13.8 3.7-17.5s6.7-5.5 12.6-5.5c4.1 0 7.3 0.8 9.5 2.3s3.7 3.9 4.6 7c0.9 3.2 1.3 7.6 1.3 13.2v9.1h-20.1zm1.5-22.4c-0.6 0.8-1 2-1.2 3.7s-0.3 4.3-0.3 7.8v3.8h8.8v-3.8c0-3.4-0.1-6-0.3-7.8s-0.7-3-1.3-3.7-1.6-1.1-2.8-1.1c-1.4-0.1-2.3 0.3-2.9 1.1z'/%3E%3Cpath d='m147.1,55.3L133.5,6h11.9l4.8,22.3c1.2,5.5,2.1,10.2,2.7,14.1h0.3c0.4-2.8,1.3-7.4,2.7-14l5-22.4h11.9 L159,55.3v23.6h-11.8V55.3z'/%3E%3Cpath d='m241.6 25.7v53.3h-9.4l-1-6.5h-0.3c-2.5 4.9-6.4 7.4-11.5 7.4-3.5 0-6.1-1.2-7.8-3.5s-2.5-5.9-2.5-10.9v-39.8h12v39.1c0 2.4 0.3 4.1 0.8 5.1s1.4 1.5 2.6 1.5c1 0 2-0.3 3-1 1-0.6 1.7-1.4 2.1-2.4v-42.3h12z'/%3E%3Cpath d='m303.1 25.7v53.3h-9.4l-1-6.5h-0.3c-2.5 4.9-6.4 7.4-11.5 7.4-3.5 0-6.1-1.2-7.8-3.5s-2.5-5.9-2.5-10.9v-39.8h12v39.1c0 2.4 0.3 4.1 0.8 5.1s1.4 1.5 2.6 1.5c1 0 2-0.3 3-1 1-0.6 1.7-1.4 2.1-2.4v-42.3h12z'/%3E%3Cpath d='m274.2,15.7h-11.9v63.2h-11.7V15.7h-11.9V6h35.5V15.7z'/%3E%3Cpath d='m342.8 34.2c-0.7-3.4-1.9-5.8-3.5-7.3s-3.9-2.3-6.7-2.3c-2.2 0-4.3 0.6-6.2 1.9-1.9 1.2-3.4 2.9-4.4 4.9h-0.1v-28.1h-11.6v75.6h9.9l1.2-5h0.3c0.9 1.8 2.3 3.2 4.2 4.3 1.9 1 3.9 1.6 6.2 1.6 4.1 0 7-1.9 8.9-5.6s2.9-9.6 2.9-17.5v-8.4c-0.1-6.1-0.4-10.8-1.1-14.1zm-11 21.7c0 3.9-0.2 6.9-0.5 9.1s-0.9 3.8-1.6 4.7c-0.8 0.9-1.8 1.4-3 1.4-1 0-1.9-0.2-2.7-0.7s-1.5-1.2-2-2.1v-30.2c0.4-1.4 1.1-2.6 2.1-3.6 1-0.9 2.1-1.4 3.2-1.4 1.2 0 2.2 0.5 2.8 1.4 0.7 1 1.1 2.6 1.4 4.8 0.3 2.3 0.4 5.5 0.4 9.6v7z'/%3E%3C/g%3E%3C/svg%3E")!important}
+/* white */.yt-lazyload[data-logo="3"] .yt-lazyload-logo{background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380.9 85.1' fill='%23fff' %3E%3Cpath transform='scale(.1)' d='m1190 133c-14-52-55-94-107-108-95-25-475-25-475-25s-380 0-475 25c-52 14-94 56-108 108-25 95-25 292-25 292s0 198 25 293c14 52 56 94 108 107 95 26 475 26 475 26s380 0 475-26c52-13 93-55 107-107 26-95 26-293 26-293s0-197-26-292zm-704 475v-365l316 182-316 183z'/%3E%3Cpath d='m176.3 77.4c-2.4-1.6-4.1-4.1-5.1-7.6-1-3.4-1.5-8-1.5-13.6v-7.7c0-5.7 0.6-10.3 1.7-13.8 1.2-3.5 3-6 5.4-7.6 2.5-1.6 5.7-2.4 9.7-2.4 3.9 0 7.1 0.8 9.5 2.4s4.1 4.2 5.2 7.6 1.7 8 1.7 13.8v7.7c0 5.7-0.5 10.2-1.6 13.7-1.1 3.4-2.8 6-5.2 7.6s-5.7 2.4-9.8 2.4c-4.2-0.1-7.6-0.9-10-2.5zm13.5-8.4c0.7-1.7 1-4.6 1-8.5v-16.6c0-3.8-0.3-6.6-1-8.4s-1.8-2.6-3.5-2.6c-1.6 0-2.8 0.9-3.4 2.6-0.7 1.8-1 4.6-1 8.4v16.6c0 3.9 0.3 6.8 1 8.5 0.6 1.7 1.8 2.6 3.5 2.6 1.6 0 2.7-0.8 3.4-2.6z'/%3E%3Cpath d='m360.9 56.3v2.7c0 3.4 0.1 6 0.3 7.7s0.6 3 1.3 3.7c0.6 0.8 1.6 1.2 3 1.2 1.8 0 3-0.7 3.7-2.1s1-3.7 1.1-7l10.3 0.6c0.1 0.5 0.1 1.1 0.1 1.9 0 4.9-1.3 8.6-4 11s-6.5 3.6-11.4 3.6c-5.9 0-10-1.9-12.4-5.6s-3.6-9.4-3.6-17.2v-9.3c0-8 1.2-13.8 3.7-17.5s6.7-5.5 12.6-5.5c4.1 0 7.3 0.8 9.5 2.3s3.7 3.9 4.6 7c0.9 3.2 1.3 7.6 1.3 13.2v9.1h-20.1zm1.5-22.4c-0.6 0.8-1 2-1.2 3.7s-0.3 4.3-0.3 7.8v3.8h8.8v-3.8c0-3.4-0.1-6-0.3-7.8s-0.7-3-1.3-3.7-1.6-1.1-2.8-1.1c-1.4-0.1-2.3 0.3-2.9 1.1z'/%3E%3Cpath d='m147.1,55.3L133.5,6h11.9l4.8,22.3c1.2,5.5,2.1,10.2,2.7,14.1h0.3c0.4-2.8,1.3-7.4,2.7-14l5-22.4h11.9 L159,55.3v23.6h-11.8V55.3z'/%3E%3Cpath d='m241.6 25.7v53.3h-9.4l-1-6.5h-0.3c-2.5 4.9-6.4 7.4-11.5 7.4-3.5 0-6.1-1.2-7.8-3.5s-2.5-5.9-2.5-10.9v-39.8h12v39.1c0 2.4 0.3 4.1 0.8 5.1s1.4 1.5 2.6 1.5c1 0 2-0.3 3-1 1-0.6 1.7-1.4 2.1-2.4v-42.3h12z'/%3E%3Cpath d='m303.1 25.7v53.3h-9.4l-1-6.5h-0.3c-2.5 4.9-6.4 7.4-11.5 7.4-3.5 0-6.1-1.2-7.8-3.5s-2.5-5.9-2.5-10.9v-39.8h12v39.1c0 2.4 0.3 4.1 0.8 5.1s1.4 1.5 2.6 1.5c1 0 2-0.3 3-1 1-0.6 1.7-1.4 2.1-2.4v-42.3h12z'/%3E%3Cpath d='m274.2,15.7h-11.9v63.2h-11.7V15.7h-11.9V6h35.5V15.7z'/%3E%3Cpath d='m342.8 34.2c-0.7-3.4-1.9-5.8-3.5-7.3s-3.9-2.3-6.7-2.3c-2.2 0-4.3 0.6-6.2 1.9-1.9 1.2-3.4 2.9-4.4 4.9h-0.1v-28.1h-11.6v75.6h9.9l1.2-5h0.3c0.9 1.8 2.3 3.2 4.2 4.3 1.9 1 3.9 1.6 6.2 1.6 4.1 0 7-1.9 8.9-5.6s2.9-9.6 2.9-17.5v-8.4c-0.1-6.1-0.4-10.8-1.1-14.1zm-11 21.7c0 3.9-0.2 6.9-0.5 9.1s-0.9 3.8-1.6 4.7c-0.8 0.9-1.8 1.4-3 1.4-1 0-1.9-0.2-2.7-0.7s-1.5-1.2-2-2.1v-30.2c0.4-1.4 1.1-2.6 2.1-3.6 1-0.9 2.1-1.4 3.2-1.4 1.2 0 2.2 0.5 2.8 1.4 0.7 1 1.1 2.6 1.4 4.8 0.3 2.3 0.4 5.5 0.4 9.6v7z'/%3E%3C/svg%3E")!important}
+
+
 /*logo:hover*/
-.embed-yt-lazy-logo:hover{
+.yt-lazyload-logo:hover{
     opacity:1!important;
     transition:opacity .3s!important;
 }
 
 /*iframe*/
-.embed-yt-lazy iframe{
+.yt-lazyload iframe{
     width:100%!important;
     height:100%!important;
     position:absolute!important;
@@ -80,180 +85,116 @@
     z-index:3!important;
     border:0!important;
 }
-
-#nologo .embed-yt-lazy-logo{display:none}
 </style>
 </head>
 <body class="bg-dark py-5">
 
-<main class="container-fluid" style="max-width:1000px!important">
-    
-    
+<main class="container-fluid" style="max-width:960px!important">
     <section class="row">
-        
         <article class="col-xl-6 mb-5">
-            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+            <div class="yt-lazyload" data-id="v64KOxKVLVg" data-random="" data-logo="3"></div>
         </article>
-        
         <article class="col-xl-6 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="z0HRB5iJQrw" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="black"></div>
+            <div class="yt-lazyload img-thumbnail shadow" data-id="z0HRB5iJQrw" data-random="" data-logo="1"></div>
         </article>
-        
-        <article class="col-xl-6 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
-        <article class="col-xl-6 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
-        </article>
-        
     </section>
     <section class="row">
-        
         <article class="col-xl-4 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+            <div class="yt-lazyload img-thumbnail" data-id="P0LUnxUeR1I" data-random="" data-logo="3"></div>
         </article>
-        
         <article class="col-xl-4 mb-5">
-            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="z0HRB5iJQrw" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="black"></div>
+            <div class="yt-lazyload" data-id="z0HRB5iJQrw" data-random="" data-logo="1"></div>
         </article>
-        
         <article class="col-xl-4 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
+            <div class="yt-lazyload" data-id="XqCKfsvi4iI" data-random="" data-logo="2"></div>
         </article>
-        
     </section>
     <section class="row">
-        
         <article class="col-xl-3 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+            <div class="yt-lazyload" data-id="ruil2p1vBjc" data-random="" data-logo="3"></div>
         </article>
-        
         <article class="col-xl-3 mb-5">
-            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="P0LUnxUeR1I" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+            <div class="yt-lazyload" data-id="PtkqwslbLY8" data-random="" data-logo="3"></div>
         </article>
-        
         <article class="col-xl-3 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+            <div class="yt-lazyload" data-id="P0LUnxUeR1I" data-random="" data-logo="3"></div>
         </article>
-        
         <article class="col-xl-3 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="SACu6d2pdOI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
+            <div class="yt-lazyload" data-id="v64KOxKVLVg" data-random="" data-logo="3"></div>
         </article>
-        
-    </section>
-    <section id="nologo" class="row">
-        
-        <article class="col-xl-2 mb-5">
-            <div class="embed-yt-lazy img-thumbnail shadow-lg" data-embed-yt-lazy="SACu6d2pdOI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
-        <article class="col-xl-2 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="JZf9TUDYmME" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
-        <article class="col-xl-2 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="P0LUnxUeR1I" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
-        <article class="col-xl-2 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
-        <article class="col-xl-2 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="9UQ70AAMuyo" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
-        <article class="col-xl-2 mb-5">
-            <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-        </article>
-        
     </section>
     <section class="row">
-        
         <article class="col-xl-4">
             <div class="card bg-light">
                 <div class="card-header">2016-05-20</div>
-                
-                <div class="embed-yt-lazy" data-embed-yt-lazy="XCrqE6yqOgI" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="red"></div>
-                
+                <div class="yt-lazyload" data-id="oSyEZAm8nb8" data-random="" data-logo="3"></div>
                 <div class="card-body h5 m-0">Lorem Ipsum Dolor</div>
             </div>
         </article>
-        
         <article class="col-xl-4">
-            <div class="card bg-light">
-                <div class="card-header">2016-05-20</div>
-                
-                <div class="embed-yt-lazy" data-embed-yt-lazy="v64KOxKVLVg" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-                
-                <div class="card-body h5 m-0">Lorem Ipsum Dolor</div>
+            <div class="card bg-secondary">
+                <div class="yt-lazyload card-img-top" data-id="OMkEVX23BdM" data-random="" data-logo="3"></div>
+                <div class="card-body h5 m-0">Lorem Ipsum</div>
             </div>
         </article>
-        
-        <article class="col-xl-3">
-            <div class="card bg-light">
-                
-                <div class="embed-yt-lazy" data-embed-yt-lazy="UXylDrsmy_E" data-embed-yt-lazy-random="" data-embed-yt-lazy-logo="white"></div>
-                
-                <div class="card-body h5 m-0">Lorem Ipsum Dolor sit Amet</div>
-            </div>
+        <article class="col-xl-4">
+            <div class="yt-lazyload" data-id="ruil2p1vBjc" data-random="" data-logo="3"></div>
         </article>
-        
-        
     </section>
-    
 </main>
 
+
+
+
+
 <script>
-/*!
- *  Youtube LazyLoad 
- *  v.2.1.1
- *  https://github.com/the-muda-organization/youtube-lazyload
- *  MIT License
- */
 (function(){
-    var youtube = document.querySelectorAll(".embed-yt-lazy");
     
-    for (var i = 0; i < youtube.length; i++){
+    //select all elements with class .yt-lazyload
+    var youtube = document.querySelectorAll('.yt-lazyload');
+    
+    //for each element execute:
+    for (var i=0; i<youtube.length; i++){
         
-        //youtube thumbnail
-		var image = new Image();
-                image.src = "https://img.youtube.com/vi/" + youtube[i].dataset.embedYtLazy + "/maxresdefault.jpg";
-                image.setAttribute("alt","");
-                image.classList.add("embed-yt-lazy-img");
-                
-                //load image after page is loaded (???)
-                image.addEventListener("load",function(){
-					youtube[i].appendChild(image);
-				}(i));
-                
-        //youtube play btn
-        var playbtn = document.createElement('div');
-                playbtn.classList.add("embed-yt-lazy-play-btn");
-                youtube[i].appendChild(playbtn);
-                
-        //youtube logo link
-        var ytlogo = new Image();
-        var ytlogolink =  document.createElement('a');
-                ytlogolink.href = "https://youtu.be/" + youtube[i].dataset.embedYtLazy;
-                ytlogolink.target = '_blank';
-                ytlogo.src = "https://muda.ovh/lib/yt-lazyload/2.1.1/ico/logo.min.svg#" + youtube[i].dataset.embedYtLazyLogo;
-                ytlogo.classList.add("embed-yt-lazy-logo");
-                ytlogolink.appendChild(ytlogo);
-                youtube[i].appendChild(ytlogolink);
+        //VARIABLES
+        var data_id     = youtube[i].dataset.id,
+            data_random = youtube[i].dataset.random,
+            image       = new Image(),
+            playbtn     = document.createElement('div'),
+            ytlogo      = document.createElement('a');
         
+        //thumbnail
+        image.classList.add('yt-lazyload-img');
+        image.src = 'https://img.youtube.com/vi/' + data_id + data_random + '/maxresdefault.jpg';
+        image.setAttribute('alt','');
+        
+        //load image after they are loaded
+        image.addEventListener('load',function(){
+            youtube[i].appendChild(image);
+        }(i));
+                
+        //play btn
+        playbtn.classList.add('yt-lazyload-playbtn');
+        youtube[i].appendChild(playbtn);
+                
+        //logo link
+        ytlogo.classList.add('yt-lazyload-logo');
+        ytlogo.href = 'https://youtu.be/' + data_id;
+        ytlogo.target = '_blank';
+        youtube[i].appendChild(ytlogo);
         
         //create iframe onclick play-btn
-        youtube[i].addEventListener("click",function(){
-            var iframe = document.createElement("iframe");
-                    iframe.setAttribute("src","https://www.youtube-nocookie.com/embed/" + this.dataset.embedYtLazy + "?controls=1&amp;showinfo=0&amp;autoplay=1");
-                    iframe.setAttribute("allow","autoplay;encrypted-media");
-                    iframe.setAttribute("allowfullscreen","");
-                    this.appendChild(iframe);
+        youtube[i].querySelector('.yt-lazyload-playbtn').addEventListener('click',function(){
+            var container = this.parentElement,
+                iframe    = document.createElement('iframe');
+                
+                iframe.setAttribute('src','https://www.youtube.com/embed/' + container.dataset.id + '?autoplay=1');
+                iframe.setAttribute('allow','accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture');
+                iframe.setAttribute('allowfullscreen','');
+                container.appendChild(iframe);
         });
         
-    };
+    }
 })();
 </script>
 
