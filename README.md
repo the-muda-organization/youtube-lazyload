@@ -120,7 +120,7 @@ CSS class                                          | Explanation
 ``.yt-lazyload-playbtn:hover``                     | play button on hover (red)
 ``.yt-lazyload-logo``                              | Youtube logo
 ``.yt-lazyload-logo:hover``                        | Youtube logo on hover
-``.yt-lazyload[data-logo="0"] .yt-lazyload-logo``  | Youtube logo color based on data attribute
+``.yt-lazyload[data-logo="X"] .yt-lazyload-logo``  | Youtube logo color based on data attribute
 ``.yt-lazy iframe``                                | Youtube embeded iframe after click
 
 
