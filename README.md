@@ -105,8 +105,8 @@ Attribute | Explanation
 ------------ | -------------
 ``class="yt-lazyload"``   | Main container. You can add additional styling classes ex. border, box-shadow etc.
 ``data-id="d4AmYBhGBfM"`` | Youtube video ID
-``data-random=""``        | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom suffix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumbnail 2 use ``data-random="--2"`` and so on. You can randomize numbers using ``<?php echo rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
-``data-logo="3"``         | Youtube logo color. Available: 0=none, 1=black, 2=red, 3=white
+``data-random=""``        | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom suffix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumbnail 2 use ``data-random="--2"`` and so on. You can randomize numbers using ``<?php echo mt_rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
+``data-logo="3"``         | Youtube logo color. Available: 0=none, 1=black, 2=red, 3=white. You can customize it in CSS file.
 
 
 ********************************************************************************
@@ -114,13 +114,14 @@ Attribute | Explanation
 
 CSS class | Explanation
 ------------ | -------------
-``.yt-lazy``                | main container
-``.yt-lazy-img``            | thumbnail
-``.yt-lazy-playbtn``        | play button (black)
-``.yt-lazy-playbtn:hover``  | play button on hover (red)
-``.yt-lazy-logo``           | Youtube logo
-``.yt-lazy-logo:hover``     | Youtube logo on hover
-``.yt-lazy iframe``         | Youtube embeded iframe after click
+``.yt-lazyload``                | main container
+``.yt-lazyload-img``            | thumbnail
+``.yt-lazyload-playbtn``        | play button (black)
+``.yt-lazyload-playbtn:hover``  | play button on hover (red)
+``.yt-lazyload-logo``           | Youtube logo
+``.yt-lazyload-logo:hover``     | Youtube logo on hover
+``.yt-lazyload[data-logo="0"]`` | Youtube logo color based on data attribute
+``.yt-lazy iframe``             | Youtube embeded iframe after click
 
 
 ********************************************************************************
