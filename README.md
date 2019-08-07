@@ -121,7 +121,7 @@ CSS class                                          | Explanation
 ``.yt-lazyload-logo``                              | Youtube logo
 ``.yt-lazyload-logo:hover``                        | Youtube logo on hover
 ``.yt-lazyload[data-logo="X"] .yt-lazyload-logo``  | Youtube logo color based on data attribute
-``.yt-lazy iframe``                                | Youtube embeded iframe after click
+``.yt-lazyload iframe``                                | Youtube embeded iframe after click
 
 
 ********************************************************************************
