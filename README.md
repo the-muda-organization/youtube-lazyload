@@ -148,7 +148,7 @@ We will behave ourselves if you behave yourselves. For more details see our
 
 ********************************************************************************
 ## Copyright and license
-Code and documentation copyright 2017-2019 [The MUDA Organization](https://github.com/twbs/bootstrap/graphs/contributors).
+Code and documentation copyright 2017-2019 [The MUDA Organization](https://muda.pl).
 
 Code released under the [MIT License](https://github.com/the-muda-organization/youtube-lazyload/blob/master/LICENSE).
 
