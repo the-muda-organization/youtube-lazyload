@@ -1,5 +1,6 @@
 {
     "name": "the-muda-organization/youtube-lazyload",
+    "version": "3.0.0",
     "description": "LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS",
     "keywords": [
         "html5",
