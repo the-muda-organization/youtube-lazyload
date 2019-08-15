@@ -11,8 +11,8 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 [![Monthly Downloads](https://poser.pugx.org/the-muda-organization/youtube-lazyload/d/monthly)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 [![Daily Downloads](https://poser.pugx.org/the-muda-organization/youtube-lazyload/d/daily)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 
-[![CSS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.0/css/yt-lazyload.min.css?compression=gzip&label=CSS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/yt-lazyload/3.0.0/css/yt-lazyload.min.css)
-[![JS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.0/js/yt-lazyload.min.js?compression=gzip&label=JS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/yt-lazyload/3.0.0/js/yt-lazyload.min.js)
+[![CSS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.0/css/yt-lazyload.min.css?compression=gzip&label=CSS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.0/css/yt-lazyload.min.css)
+[![JS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.0/js/yt-lazyload.min.js?compression=gzip&label=JS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.0/js/yt-lazyload.min.js)
 
 [![License Code](https://poser.pugx.org/the-muda-organization/youtube-lazyload/license)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 
@@ -101,8 +101,8 @@ Have a bug or a feature request? Before opening a new issue search for existing 
 ********************************************************************************
 ## Features
 
-Attribute | Explanation
------------- | -------------
+Attribute                 | Explanation
+------------------------- | -------------------------
 ``class="yt-lazyload"``   | Main container. You can add additional styling classes ex. border, box-shadow etc.
 ``data-id="d4AmYBhGBfM"`` | Youtube video ID
 ``data-random=""``        | If you need to add more thumbnails here you can randomize which one is displayed. Name your files ``d4AmYBhGBfM.jpg`` adding custom suffix. For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``. To show thumbnail 2 use ``data-random="--2"`` and so on. You can randomize numbers using ``<?php echo mt_rand(1,3);?>``. Leave empty if you have only 1 thumbnail.
@@ -121,7 +121,7 @@ CSS class                                          | Explanation
 ``.yt-lazyload-logo``                              | Youtube logo
 ``.yt-lazyload-logo:hover``                        | Youtube logo on hover
 ``.yt-lazyload[data-logo="X"] .yt-lazyload-logo``  | Youtube logo color based on data attribute
-``.yt-lazyload iframe``                                | Youtube embeded iframe after click
+``.yt-lazyload iframe``                            | Youtube embeded iframe after click
 
 
 ********************************************************************************
