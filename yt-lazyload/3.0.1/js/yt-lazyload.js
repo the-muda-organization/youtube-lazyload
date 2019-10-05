@@ -51,5 +51,5 @@
                 container.appendChild(iframe);
         });
         
-    };
+    }
 })();
