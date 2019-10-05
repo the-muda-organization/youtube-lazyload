@@ -11,8 +11,8 @@ LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
 [![Monthly Downloads](https://poser.pugx.org/the-muda-organization/youtube-lazyload/d/monthly)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 [![Daily Downloads](https://poser.pugx.org/the-muda-organization/youtube-lazyload/d/daily)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 
-[![CSS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.0/css/yt-lazyload.min.css?compression=gzip&label=CSS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.0/css/yt-lazyload.min.css)
-[![JS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.0/js/yt-lazyload.min.js?compression=gzip&label=JS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.0/js/yt-lazyload.min.js)
+[![CSS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.1/css/yt-lazyload.min.css?compression=gzip&label=CSS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.1/css/yt-lazyload.min.css)
+[![JS gzip size](https://img.badgesize.io/the-muda-organization/youtube-lazyload/master/yt-lazyload/3.0.1/js/yt-lazyload.min.js?compression=gzip&label=JS+gzip+size)](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.1/js/yt-lazyload.min.js)
 
 [![License Code](https://poser.pugx.org/the-muda-organization/youtube-lazyload/license)](https://packagist.org/packages/the-muda-organization/youtube-lazyload)
 
@@ -76,9 +76,9 @@ Have a bug or a feature request? Before opening a new issue search for existing 
 ## Installation
 
 1. Download and copy files to your project
-2. Open [yt-lazyload.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.0/js/yt-lazyload.js)
+2. Open [yt-lazyload.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.1/js/yt-lazyload.js)
 3. Change: **line 24** "https://example.com/" to custom folder to store your thumbnails.<br>I am not sure if it will work in all cases, but you may use youtube domain https://img.youtube/vi/**VIDEO-ID**/maxresdefault.jpg
-4. Minify JS and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.0/js/yt-lazyload.min.js) or simply find variable and change to your domain.
+4. Minify JS and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.0.1/js/yt-lazyload.min.js) or simply find variable and change to your domain.
 5. Add CSS and JS to your project:
 ```html
     <link href="https://example.com/yt-lazyload/3.x.x/css/yt-lazyload.min.css" rel="stylesheet">
