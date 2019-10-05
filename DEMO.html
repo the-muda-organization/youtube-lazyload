@@ -1,6 +1,6 @@
 <!--
  *  Youtube LazyLoad 
- *  v.3.0.0
+ *  v.3.0.1
  *  https://github.com/the-muda-organization/youtube-lazyload
  *  MIT License
 -->
@@ -183,6 +183,7 @@
         ytlogo.classList.add('yt-lazyload-logo');
         ytlogo.href = 'https://youtu.be/' + data_id;
         ytlogo.target = '_blank';
+        ytlogo.rel = 'noreferrer';
         youtube[i].appendChild(ytlogo);
         
         //create iframe onclick play-btn
