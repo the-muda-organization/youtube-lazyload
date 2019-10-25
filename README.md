@@ -1,5 +1,5 @@
 # Youtube LazyLoad
-LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JS
+LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JavaScript
 
 
 ********************************************************************************
