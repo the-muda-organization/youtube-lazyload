@@ -77,7 +77,7 @@ Have a bug or a feature request? Before opening a new issue search for existing 
 
 1. Download and copy files to your project
 2. Open [yt-lazyload.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.1.0/js/yt-lazyload.js)
-3. Change:<br> **line 24** `yt_image.src = 'https://example.com/' + data_id + data_random + '.jpg';` to custom folder to store your thumbnails.<br>I am not sure if it will work in all cases, but you may use youtube domain `https://img.youtube/vi/**VIDEO-ID**/maxresdefault.jpg`
+3. Change:<br> **line 24** `yt_image.src = 'https://example.com/' + data_id + data_random + '.jpg';` to custom folder to store your thumbnails.<br>I am not sure if it will work in all cases, but you may use youtube domain `https://img.youtube.com/vi/**VIDEO-ID**/maxresdefault.jpg`
 4. Minify JavaScript and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/3.1.0/js/yt-lazyload.min.js).
 5. Add CSS and JavaScript to your project:
 ```html
