@@ -1,4 +1,4 @@
-### :information_source: v4.0.0 - will be realeased soon!
+### :information_source: v4.0.0 - will be released soon!
 
 ********************************************************************************
 # Youtube LazyLoad
