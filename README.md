@@ -1,3 +1,6 @@
+### :information_source: v4.0.0 - will be realeased soon!
+
+********************************************************************************
 # Youtube LazyLoad
 LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JavaScript
 
