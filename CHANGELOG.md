@@ -2,6 +2,35 @@
 ## CHANGELOG:
 
 
+
+###### June 20th, 2020
+## v4.0.0 - NEW VERSION (REBUILT FROM SCRATCH + 1 SMALL BREAKING CHANGE)
+
+#### CSS:
+- changed layout so that container maintains 16/9 ratio even if JS not loaded
+- thumbnails are loaded as `background-image` using style attributes and CSS variables.
+
+#### JS:
+- rebuilt from scratch
+- added lazyload (using Intersection Observer API - https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+- youtube logo & link not added when `data-logo="0"`
+- important settings moved to variables at the beginning of JS file
+
+#### OTHER:
+- improved documentation
+- DEMO - Bootstrap updated to v5
+
+#### UPDATE from v3:
+`data-random=""` attribute was renamed to `data-thumb=""` just to be more intuitive.
+
+Change: `<div class="yt-lazyload" data-id="XXXXXXXX" data-random="" data-logo="1">`
+
+to: `<div class="yt-lazyload" data-id="XXXXXXXX" data-thumb="" data-logo="1">`
+
+If you don't like this change, change `dataset.thumb` to `dataset.random` in JS file.
+
+
+********************************************************************************
 ********************************************************************************
 ********************************************************************************
 ###### October 24th, 2019
@@ -38,7 +67,7 @@
 ## v3.0.1 - PATCH
 
 #### JS:
-- (#1) - Optimizing Links for Chrome Audits - added `rel = 'noreferrer'`
+- [(#1)](https://github.com/the-muda-organization/youtube-lazyload/issues/1) - Optimizing Links for Chrome Audits - added `rel = 'noreferrer'`
 
 
 ********************************************************************************
