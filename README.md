@@ -80,7 +80,7 @@ Have a bug or a feature request? Before opening a new issue search for existing 
 1. Download and copy files to your project
 2. Open [yt-lazyload.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/4.0.0/js/yt-lazyload.js)
 3. Change settings:
-    - **line 24** `settings_thumb_base_url` to custom URL where your thumbnails are located.
+    - **line 24:** `settings_thumb_base_url` to custom URL where your thumbnails are located.
 4. Minify JavaScript and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/4.0.0/js/yt-lazyload.min.js).
 5. Add CSS and JavaScript to your project:
 ```html
