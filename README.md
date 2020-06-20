@@ -79,7 +79,8 @@ Have a bug or a feature request? Before opening a new issue search for existing 
 
 1. Download and copy files to your project
 2. Open [yt-lazyload.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/4.0.0/js/yt-lazyload.js)
-3. Change settings:<br> **line 24** `settings_thumb_base_url` to custom URL where your thumbnails are located.
+3. Change settings:
+    - **line 24** `settings_thumb_base_url` to custom URL where your thumbnails are located.
 4. Minify JavaScript and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/yt-lazyload/4.0.0/js/yt-lazyload.min.js).
 5. Add CSS and JavaScript to your project:
 ```html
@@ -112,8 +113,8 @@ Attribute                 | Explanation
 ------------------------- | -------------------------
 ``class="yt-lazyload"``   | Main container.<br><br>You can add additional style like `border`, `box-shadow` etc. or Bootstrap classes like `img-thumbnail`, `shadow` etc.
 ``data-id="d4AmYBhGBfM"`` | Youtube video ID
-``data-thumb=""``         | If you need to add more thumbnails here you can choose which one is displayed. It is usefull for quality specific thumbs (SD, 720p, 1080p etc) or in case of multiple thumbs random one can be selected.<br><br>Name your files ``d4AmYBhGBfM.jpg`` and add custom suffix.<br><br>For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``.<br><br>To show thumbnail 2 use ``data-random="--2"`` and so on.<br><br>You can randomize numbers using ``<?php echo mt_rand(1,3);?>``.<br><br>**Leave empty if you have only 1 thumbnail.**
-``data-logo="3"``         | Youtube logo color.<br><br>Available:<br><br> **0** = none - logo will not be added by JavaScript,<br> **1** = black,<br> **2** = color-black,<br> **3** = white,<br> **4** = color-white (available in v4.0.0+).<br><br>You can customize it in CSS.
+``data-thumb=""``         | If you need to add more thumbnails here you can choose which one is displayed. It is usefull for quality specific thumbs (SD, 720p, 1080p etc) or in case of multiple thumbs random one can be selected.<br><br>Name your files ``d4AmYBhGBfM.jpg`` and add custom suffix.<br><br>For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``.<br><br>To show thumbnail 2 use ``data-thumb="--2"`` and so on.<br><br>You can randomize numbers using ``<?php echo mt_rand(1,3);?>``.<br><br>**Leave empty if you have only 1 thumbnail.**
+``data-logo="3"``         | Youtube logo color. You can customize it in CSS.<br><br>Available:<br><br> **0** = none - logo will not be added by JavaScript,<br> **1** = black,<br> **2** = color-black,<br> **3** = white,<br> **4** = color-white (v4.0.0+).
 
 
 ********************************************************************************
