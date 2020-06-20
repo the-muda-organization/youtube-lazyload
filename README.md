@@ -113,7 +113,7 @@ Attribute                 | Explanation
 ------------------------- | -------------------------
 ``class="yt-lazyload"``   | Main container.<br><br>You can add additional style like `border`, `box-shadow` etc. or Bootstrap classes like `img-thumbnail`, `shadow` etc.
 ``data-id="d4AmYBhGBfM"`` | Youtube video ID
-``data-thumb=""``         | If you need to add more thumbnails here you can choose which one is displayed. It is usefull for quality specific thumbs (SD, 720p, 1080p etc) or in case of multiple thumbs random one can be selected.<br><br>Name your files ``d4AmYBhGBfM.jpg`` and add custom suffix.<br><br>For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``.<br><br>To show thumbnail 2 use ``data-thumb="--2"`` and so on.<br><br>You can randomize numbers using ``<?php echo mt_rand(1,3);?>``.<br><br>**Leave empty if you have only 1 thumbnail.**
+``data-thumb=""``         | If you need to add more thumbnails you can choose which one is displayed. It is usefull for quality specific thumbs (SD, 720p, 1080p) or in case of multiple thumbs random one can be selected.<br><br>Name your files ``d4AmYBhGBfM.jpg`` and add custom suffix.<br><br>For 3 thumbnails make ``d4AmYBhGBfM--1.jpg``, ``d4AmYBhGBfM--2.jpg`` and  ``d4AmYBhGBfM--3.jpg``.<br><br>To show thumbnail 2 use ``data-thumb="--2"`` and so on.<br><br>You can randomize numbers using ``<?php echo mt_rand(1,3);?>``.<br><br>**Leave empty if you have only 1 thumbnail.**
 ``data-logo="3"``         | Youtube logo color. You can customize it in CSS.<br><br>Available:<br><br> **0** = none - logo will not be added by JavaScript,<br> **1** = black,<br> **2** = color-black,<br> **3** = white,<br> **4** = color-white (v4.0.0+).
 
 
