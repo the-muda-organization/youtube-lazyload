@@ -2,7 +2,16 @@
 ## CHANGELOG:
 
 
+********************************************************************************
+###### August 8th, 2020
+## v4.0.1 - PATCH
 
+#### CSS:
+- Fixed youtube play button in `.yt-lazyload-playbtn` and `.yt-lazyload-playbtn:hover`. New SVG comes from youtube website.
+- Fixed SVG - removed charset utf8 from `background-image` as it is not required. Modifications in `.yt-lazyload[data-logo="X"] .yt-lazyload-logo`
+
+
+********************************************************************************
 ###### June 20th, 2020
 ## v4.0.0 - NEW VERSION (REBUILT FROM SCRATCH + 1 SMALL BREAKING CHANGE)
 
