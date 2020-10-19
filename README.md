@@ -145,6 +145,8 @@ CSS class                                          | Explanation
     - Yes you can! There should be no conflict with other frameworks.
 - **Can I embed video players other than Youtube?**
     - Check out our sister project for Vimeo Player: https://github.com/the-muda-organization/vimeo-lazyload
+- **Does it work on mobile devices?**
+    - Yes and no. Lazyload works as expected but autoplay is disabled by YouTube on iOS and Android. More info: https://stackoverflow.com/questions/15090782/youtube-autoplay-not-working-on-mobile-devices-with-embedded-html5-player
 
 
 ********************************************************************************
