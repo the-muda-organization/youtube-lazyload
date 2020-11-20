@@ -80,7 +80,7 @@ Have a bug or a feature request? Before opening a new issue search for existing 
 1. Download and copy files to your project
 2. Open [yt-lazyload.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/dist/js/yt-lazyload.js)
 3. Change settings:
-    - **line 24:** `settings_thumb_base_url` to custom URL where your thumbnails are located.
+    - `settings_thumb_base_url` to custom URL where your thumbnails are located.
 4. Minify JavaScript and place it in [yt-lazyload.min.js](https://github.com/the-muda-organization/youtube-lazyload/blob/master/dist/js/yt-lazyload.min.js).
 5. Add CSS and JavaScript to your project:
 ```html
@@ -139,8 +139,8 @@ CSS class                                          | Explanation
 
 - **Can I use Youtube domain to get thumbnails?**
     - I am not sure if it will work in all cases, but you can try. You need to adjust JavaScript.
-    - Change **line 24:** `settings_thumb_base_url = 'https://img.youtube.com/vi/';`
-    - Change **line 88:** `this_content.style.setProperty('--yt-lazyload-img','url("' + settings_thumb_base_url + this_data_id + '/maxresdefault.jpg")');`
+    - Change `settings_thumb_base_url = 'https://img.youtube.com/vi/';`
+    - Change `this_content.style.setProperty('--yt-lazyload-img','url("' + settings_thumb_base_url + this_data_id + '/maxresdefault.jpg")');`
 - **Can I use *Youtube lazyload* with other frameworks like Bootstrap?**
     - Yes you can! There should be no conflict with other frameworks.
 - **Can I embed video players other than Youtube?**
