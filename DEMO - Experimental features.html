@@ -281,7 +281,7 @@
             elements.forEach(function(e){
                 
                 //VARIABLES
-                var this_element    = e.target,
+                var this_element,
                     this_wrap,
                     this_content,
                     this_title,
@@ -289,15 +289,23 @@
                     this_logo,
                     this_iframe,
                     
-                    this_data_id    = e.target.dataset.id,
-                    this_data_thumb = e.target.dataset.thumb,
-                    this_data_logo  = e.target.dataset.logo,
-                    this_data_title = e.target.getAttribute('aria-label');
+                    this_data_id,
+                    this_data_thumb,
+                    this_data_logo,
+                    this_data_title;
 
 
                 //if element appears in viewport
                 if(e.isIntersecting === true){
                     
+                    //variables
+                    this_element    = e.target;
+
+                    this_data_id    = e.target.dataset.id;
+                    this_data_thumb = e.target.dataset.thumb;
+                    this_data_logo  = e.target.dataset.logo;
+                    this_data_title = e.target.getAttribute('aria-label');
+
                     //wrap
                     this_wrap = template_wrap.cloneNode();
                     this_element.append(this_wrap);
