@@ -158,53 +158,53 @@
     
     <section class="row row-cols-lg-2 row-cols-md-1 g-4 mb-5">
         <article class="col">
-            <div class="yt-lazyload" data-id="aDoanNM7O_s" data-thumb="" aria-label="The Lost Forest | Nobel Peace Prize Shorts"></div>
+            <div class="yt-lazyload" data-id="aDoanNM7O_s" aria-label="The Lost Forest | Nobel Peace Prize Shorts"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload img-thumbnail shadow" data-id="v64KOxKVLVg" data-thumb="" aria-label="360° Underwater National Park | National Geographic"></div>
+            <div class="yt-lazyload img-thumbnail shadow" data-id="v64KOxKVLVg" data-thumbX="" aria-label="360° Underwater National Park | National Geographic"></div>
         </article>
     </section>
     <section class="row row-cols-lg-3 row-cols-md-1 g-4 mb-5">
         <article class="col">
-            <div class="yt-lazyload" data-id="P0LUnxUeR1I" data-thumb="" aria-label="Riddles of the Moon | National Geographic"></div>
+            <div class="yt-lazyload" data-id="P0LUnxUeR1I" aria-label="Riddles of the Moon | National Geographic"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload" data-id="59MxUMcSFdA" data-thumb="" aria-label="Crack Splitting an Antarctic Ice Shelf In Two | National Geographic"></div>
+            <div class="yt-lazyload" data-id="59MxUMcSFdA" aria-label="Crack Splitting an Antarctic Ice Shelf In Two | National Geographic"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload" data-id="hcCVe5MamN4" data-thumb="" aria-label="Seven Wonders of the New World | Cosmos: Possible Worlds"></div>
+            <div class="yt-lazyload" data-id="hcCVe5MamN4" aria-label="Seven Wonders of the New World | Cosmos: Possible Worlds"></div>
         </article>
     </section>
     <section class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4 mb-5">
         <article class="col">
-            <div class="yt-lazyload" data-id="r2Ou58p_D7k" data-thumb="" aria-label="The Unsung Heroes of the Arctic - Ep. 3 | Wildlife: The Big Freeze"></div>
+            <div class="yt-lazyload" data-id="r2Ou58p_D7k" aria-label="The Unsung Heroes of the Arctic - Ep. 3 | Wildlife: The Big Freeze"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload" data-id="aDoanNM7O_s" data-thumb="" aria-label="The Lost Forest | Nobel Peace Prize Shorts"></div>
+            <div class="yt-lazyload" data-id="aDoanNM7O_s" aria-label="The Lost Forest | Nobel Peace Prize Shorts"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload" data-id="P0LUnxUeR1I" data-thumb="" aria-label="Riddles of the Moon | National Geographic"></div>
+            <div class="yt-lazyload" data-id="P0LUnxUeR1I" aria-label="Riddles of the Moon | National Geographic"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload" data-id="v64KOxKVLVg" data-thumb="" aria-label="360° Underwater National Park | National Geographic"></div>
+            <div class="yt-lazyload" data-id="v64KOxKVLVg" aria-label="360° Underwater National Park | National Geographic"></div>
         </article>
     </section>
     <section class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4 mb-5">
         <article class="col">
             <div class="card w-100 bg-light">
                 <div class="card-header">2020-06-20</div>
-                <div class="yt-lazyload" data-id="oSyEZAm8nb8" data-thumb="" aria-label="Octopuses 101 | Nat Geo Wild"></div>
+                <div class="yt-lazyload" data-id="oSyEZAm8nb8" aria-label="Octopuses 101 | Nat Geo Wild"></div>
                 <div class="card-footer h5 m-0">Lorem Ipsum Dolor</div>
             </div>
         </article>
         <article class="col">
             <div class="card w-100 bg-light">
-                <div class="yt-lazyload card-img-top" data-id="OMkEVX23BdM" data-thumb="" aria-label="Lions 101 | Nat Geo Wild"></div>
+                <div class="yt-lazyload card-img-top" data-id="OMkEVX23BdM" aria-label="Lions 101 | Nat Geo Wild"></div>
                 <div class="card-footer h5 m-0">Lorem Ipsum</div>
             </div>
         </article>
         <article class="col">
-            <div class="yt-lazyload img-thumbnail shadow" data-id="ruil2p1vBjc" data-thumb="" aria-label="Anyone Can Be an Underwater Photographer | National Geographic"></div>
+            <div class="yt-lazyload img-thumbnail shadow" data-id="ruil2p1vBjc" aria-label="Anyone Can Be an Underwater Photographer | National Geographic"></div>
         </article>
         <article class="col">
             <div class="yt-lazyload img-thumbnail shadow" data-id="oSyEZAm8nb8" data-thumb="" data-logo="0" aria-label="Octopuses 101 | Nat Geo Wild"></div>
@@ -269,7 +269,7 @@
         template_logo.target = '_blank';
         template_logo.rel    = 'noreferrer';
         
-        template_iframe.setAttribute('allow','accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture');
+        template_iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
         template_iframe.setAttribute('allowfullscreen','');
         
         
@@ -300,11 +300,15 @@
                     
                     //variables
                     this_element    = e.target;
-
                     this_data_id    = e.target.dataset.id;
                     this_data_thumb = e.target.dataset.thumb;
                     this_data_logo  = e.target.dataset.logo;
                     this_data_title = e.target.getAttribute('aria-label');
+                    
+                    //data-thumb fix - undefined -> empty string
+                    if(typeof this_data_thumb === 'undefined'){
+                        this_data_thumb = '';
+                    }
 
                     //wrap
                     this_wrap = template_wrap.cloneNode();
