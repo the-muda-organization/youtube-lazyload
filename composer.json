@@ -2,15 +2,14 @@
     "name": "the-muda-organization/youtube-lazyload",
     "description": "LazyLoad Embed Youtube Player - simple and lightweight plugin - pure JavaScript",
     "keywords": [
-        "youtube",
-        "lazyload",
-        "lazyload-iframes",
-        "youtube-lazyload",
-        "video",
-        "html5",
         "css",
-        "js",
-        "muda"
+        "html",
+        "html5",
+        "javascript",
+        "javascript-library",
+        "lazyload",
+        "video",
+        "youtube"
     ],
     "readme": "/README.md",
     "authors": [
