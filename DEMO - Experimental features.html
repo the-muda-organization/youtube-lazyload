@@ -1,6 +1,6 @@
 <!--
- * Youtube LazyLoad
- * v4.1.0
+ * YouTube LazyLoad
+ * v5.0.0
  * https://github.com/the-muda-organization/youtube-lazyload
  * MIT License
 -->
@@ -8,133 +8,147 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Youtube Lazyload</title>
+    <title>Youtube Lazyload DEMO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
+/*
+IDEAS
+- 
+
+*/
+
+/* Available variables for easier customization *//*
+.yt-lazyload{
+    --yt-lazyload-bg:           #000;
+    --yt-lazyload-title-color:  #eee;
+    --yt-lazyload-ratio-x:      16;
+    --yt-lazyload-ratio-y:      9;
+}
+*/
 
 /* youtube lazyload container */
 .yt-lazyload{
-    width:100%;
-    position:relative!important;
-    overflow:hidden;
-    cursor:pointer;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
+    width: 100%;
+    position: relative !important;
+    overflow: hidden;
+    cursor: pointer;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* youtube lazyload container ::before --> to maintain 16/9 ratio & black bg before JS loaded */
 .yt-lazyload::before{
-    content:"";
-    width:100%;
-    display:block;
-    position:relative;
-    padding-top:56.25%; /*16:9 ratio*/
-    background-color:#000;
+    content: "";
+    width: 100%;
+    display: block;
+    position: relative;
+    padding-top: calc(100% / var(--yt-lazyload-ratio-x,16) * var(--yt-lazyload-ratio-x,9));
+    background-color: var(--yt-lazyload-bg,#000);
 }
 
 /* youtube lazyload wrap */
 .yt-lazyload-wrap{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    padding:inherit;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: inherit;
 }
 
 /* youtube lazyload content */
 .yt-lazyload-content{
-    width:100%;
-    height:100%;
-    position:relative;
-    background-color:#000;
-    background-image:var(--yt-lazyload-img);
-    background-size:cover;
-    background-position:50%;
-    background-repeat:no-repeat;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: var(--yt-lazyload-bg,#000);
+    background-image: var(--yt-lazyload-img);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
 }
 
 /* play-btn */
 .yt-lazyload-playbtn{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    z-index:2;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath fill='%23212121' fill-opacity='.8' d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z'/%3E%3Cpath fill='%23fff' d='m45 24-18-10v20'/%3E%3C/svg%3E");
-    background-position:50%;
-    background-size:calc(35px + 10%) auto;
-    background-repeat:no-repeat;
-    transition:.25s cubic-bezier(0,0,.2,1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath fill='%23212121' fill-opacity='.8' d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z'/%3E%3Cpath fill='%23fff' d='m45 24-18-10v20'/%3E%3C/svg%3E");
+    background-position: 50%;
+    background-size: calc(35px + 10%) auto;
+    background-repeat: no-repeat;
+    transition: .25s cubic-bezier(0,0,.2,1);
 }
 
 /* play-btn:hover */
 .yt-lazyload-playbtn:hover{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath fill='red' d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z'/%3E%3Cpath fill='%23fff' d='m45 24-18-10v20'/%3E%3C/svg%3E");
-    transition:.1s cubic-bezier(.4,0,1,1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath fill='red' d='M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z'/%3E%3Cpath fill='%23fff' d='m45 24-18-10v20'/%3E%3C/svg%3E");
+    transition: .1s cubic-bezier(.4,0,1,1);
 }
 
 /* logo 4.5x1rem + 1rem padding */
 .yt-lazyload-logo{
-    width:6.5rem;
-    height:3rem;
-    display:block;
-    position:absolute;
-    left:0;
-    bottom:.5rem;
-    z-index:3;
-    background-color:rgba(23,23,23,.8);
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 26'%3E%3Cpath fill='%23fff' d='m16.68 0.99c-3.13 0.04-9.66 0.17-11.69 0.69-1.49 0.4-2.59 1.6-2.99 3-0.69 2.7-0.68 8.31-0.68 8.31s-0.01 5.61 0.68 8.31c0.39 1.5 1.59 2.6 2.99 3 2.69 0.7 13.4 0.68 13.4 0.68s10.7 0.01 13.4-0.68c1.5-0.4 2.59-1.6 2.99-3 0.69-2.7 0.68-8.31 0.68-8.31s0.11-5.61-0.68-8.31c-0.4-1.5-1.59-2.6-2.99-3-2.68-0.7-13.39-0.69-13.39-0.69s-0.67-0.01-1.71 0zm72.21 0.9v21.28h2.78l0.31-1.37h0.09c0.3 0.5 0.71 0.88 1.21 1.18s1.08 0.4 1.68 0.4c1.1 0 1.99-0.49 2.49-1.59s0.81-2.7 0.81-4.9v-2.4c0-1.6-0.11-2.9-0.31-3.9-0.2-0.89-0.5-1.59-1-2.09-0.5-0.4-1.1-0.59-1.9-0.59-0.59 0-1.18 0.19-1.68 0.49-0.49 0.3-1.01 0.8-1.21 1.4v-7.9h-3.28zm-49.99 0.78 3.9 13.9 0.18 6.71h3.31v-6.71l3.87-13.9h-3.37l-1.4 6.31c-0.4 1.89-0.71 3.19-0.81 3.99h-0.09c-0.2-1.1-0.51-2.4-0.81-3.99l-1.37-6.31h-3.4zm29.59 0v2.71h3.4v17.9h3.28v-17.9h3.4s0-2.71-0.09-2.71h-9.99zm-53.49 5.12 8.9 5.18-8.9 5.09v-10.28zm89.4 0.09c-1.7 0-2.89 0.59-3.59 1.59-0.69 0.99-0.99 2.6-0.99 4.9v2.59c0 2.2 0.3 3.9 0.99 4.9 0.7 1.1 1.8 1.59 3.5 1.59 1.4 0 2.38-0.3 3.18-1 0.7-0.7 1.09-1.69 1.09-3.09v-0.5l-2.9-0.21c0 1-0.08 1.6-0.28 2-0.1 0.4-0.5 0.62-1 0.62-0.3 0-0.61-0.11-0.81-0.31-0.2-0.3-0.3-0.59-0.4-1.09s-0.09-1.21-0.09-2.21v-0.78l5.71-0.09v-2.62c0-1.6-0.1-2.78-0.4-3.68-0.2-0.89-0.71-1.59-1.31-1.99-0.7-0.4-1.48-0.59-2.68-0.59zm-50.49 0.09c-1.09 0-2.01 0.18-2.71 0.68-0.7 0.4-1.2 1.12-1.49 2.12-0.3 1-0.5 2.27-0.5 3.87v2.21c0 1.5 0.1 2.78 0.4 3.78 0.2 0.9 0.7 1.62 1.4 2.12 0.69 0.5 1.71 0.68 2.81 0.78 1.19 0 2.08-0.28 2.78-0.68 0.69-0.4 1.09-1.09 1.49-2.09 0.39-1 0.49-2.3 0.49-3.9v-2.21c0-1.6-0.2-2.87-0.49-3.87-0.3-0.89-0.8-1.62-1.49-2.12-0.7-0.5-1.58-0.68-2.68-0.68zm12.18 0.09v11.9c-0.1 0.3-0.29 0.48-0.59 0.68-0.2 0.2-0.51 0.31-0.81 0.31s-0.58-0.1-0.68-0.4-0.18-0.7-0.18-1.4v-10.99h-3.4v11.21c0 1.4 0.18 2.39 0.68 3.09 0.49 0.7 1.21 1 2.21 1 1.4 0 2.48-0.69 3.18-2.09h0.09l0.31 1.78h2.59v-14.99s-3.4 0-3.4-0.09zm17.31 0v11.9c-0.1 0.3-0.29 0.48-0.59 0.68-0.2 0.2-0.51 0.31-0.81 0.31s-0.58-0.1-0.68-0.4-0.21-0.7-0.21-1.4v-10.99h-3.4v11.21c0 1.4 0.21 2.39 0.71 3.09s1.18 1 2.18 1c1.39 0 2.51-0.69 3.21-2.09h0.09l0.28 1.78h2.62v-14.99s-3.4 0-3.4-0.09zm20.9 2.09c0.4 0 0.58 0.11 0.78 0.31 0.2 0.3 0.3 0.59 0.4 1.09s0.09 1.21 0.09 2.21v1.09h-2.5v-1.09c0-1 0-1.71 0.09-2.21 0-0.4 0.11-0.8 0.31-1 0.2-0.3 0.51-0.4 0.81-0.4zm-50.49 0.12c0.5 0 0.8 0.18 1 0.68 0.19 0.5 0.28 1.3 0.28 2.4v4.68c0 1.1-0.08 1.9-0.28 2.4s-0.5 0.68-1 0.68-0.79-0.18-0.99-0.68-0.31-1.3-0.31-2.4v-4.68c0-1.1 0.11-1.9 0.31-2.4s0.49-0.68 0.99-0.68zm39.68 0.09c0.3 0 0.61 0.1 0.81 0.4s0.27 0.67 0.37 1.37c0.1 0.6 0.12 1.51 0.12 2.71l0.09 1.9c0 1.1 0 1.99-0.09 2.59-0.1 0.6-0.19 1.08-0.49 1.28-0.2 0.3-0.5 0.4-0.9 0.4-0.3 0-0.51-0.08-0.81-0.18-0.2-0.1-0.39-0.29-0.59-0.59v-8.5c0.1-0.4 0.29-0.7 0.59-1s0.6-0.4 0.9-0.4z'/%3E%3C/svg%3E");
-    background-position:50%;
-    background-size:auto 1rem;
-    background-repeat:no-repeat;
-    border-bottom-right-radius:2px;
-    border-top-right-radius:2px;
-    transition:background-color .25s cubic-bezier(0,0,.2,1);
+    width: 6.5rem;
+    height: 3rem;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: .5rem;
+    z-index: 3;
+    background-color: rgba(23,23,23,.8);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 26'%3E%3Cpath fill='%23fff' d='m16.68 0.99c-3.13 0.04-9.66 0.17-11.69 0.69-1.49 0.4-2.59 1.6-2.99 3-0.69 2.7-0.68 8.31-0.68 8.31s-0.01 5.61 0.68 8.31c0.39 1.5 1.59 2.6 2.99 3 2.69 0.7 13.4 0.68 13.4 0.68s10.7 0.01 13.4-0.68c1.5-0.4 2.59-1.6 2.99-3 0.69-2.7 0.68-8.31 0.68-8.31s0.11-5.61-0.68-8.31c-0.4-1.5-1.59-2.6-2.99-3-2.68-0.7-13.39-0.69-13.39-0.69s-0.67-0.01-1.71 0zm72.21 0.9v21.28h2.78l0.31-1.37h0.09c0.3 0.5 0.71 0.88 1.21 1.18s1.08 0.4 1.68 0.4c1.1 0 1.99-0.49 2.49-1.59s0.81-2.7 0.81-4.9v-2.4c0-1.6-0.11-2.9-0.31-3.9-0.2-0.89-0.5-1.59-1-2.09-0.5-0.4-1.1-0.59-1.9-0.59-0.59 0-1.18 0.19-1.68 0.49-0.49 0.3-1.01 0.8-1.21 1.4v-7.9h-3.28zm-49.99 0.78 3.9 13.9 0.18 6.71h3.31v-6.71l3.87-13.9h-3.37l-1.4 6.31c-0.4 1.89-0.71 3.19-0.81 3.99h-0.09c-0.2-1.1-0.51-2.4-0.81-3.99l-1.37-6.31h-3.4zm29.59 0v2.71h3.4v17.9h3.28v-17.9h3.4s0-2.71-0.09-2.71h-9.99zm-53.49 5.12 8.9 5.18-8.9 5.09v-10.28zm89.4 0.09c-1.7 0-2.89 0.59-3.59 1.59-0.69 0.99-0.99 2.6-0.99 4.9v2.59c0 2.2 0.3 3.9 0.99 4.9 0.7 1.1 1.8 1.59 3.5 1.59 1.4 0 2.38-0.3 3.18-1 0.7-0.7 1.09-1.69 1.09-3.09v-0.5l-2.9-0.21c0 1-0.08 1.6-0.28 2-0.1 0.4-0.5 0.62-1 0.62-0.3 0-0.61-0.11-0.81-0.31-0.2-0.3-0.3-0.59-0.4-1.09s-0.09-1.21-0.09-2.21v-0.78l5.71-0.09v-2.62c0-1.6-0.1-2.78-0.4-3.68-0.2-0.89-0.71-1.59-1.31-1.99-0.7-0.4-1.48-0.59-2.68-0.59zm-50.49 0.09c-1.09 0-2.01 0.18-2.71 0.68-0.7 0.4-1.2 1.12-1.49 2.12-0.3 1-0.5 2.27-0.5 3.87v2.21c0 1.5 0.1 2.78 0.4 3.78 0.2 0.9 0.7 1.62 1.4 2.12 0.69 0.5 1.71 0.68 2.81 0.78 1.19 0 2.08-0.28 2.78-0.68 0.69-0.4 1.09-1.09 1.49-2.09 0.39-1 0.49-2.3 0.49-3.9v-2.21c0-1.6-0.2-2.87-0.49-3.87-0.3-0.89-0.8-1.62-1.49-2.12-0.7-0.5-1.58-0.68-2.68-0.68zm12.18 0.09v11.9c-0.1 0.3-0.29 0.48-0.59 0.68-0.2 0.2-0.51 0.31-0.81 0.31s-0.58-0.1-0.68-0.4-0.18-0.7-0.18-1.4v-10.99h-3.4v11.21c0 1.4 0.18 2.39 0.68 3.09 0.49 0.7 1.21 1 2.21 1 1.4 0 2.48-0.69 3.18-2.09h0.09l0.31 1.78h2.59v-14.99s-3.4 0-3.4-0.09zm17.31 0v11.9c-0.1 0.3-0.29 0.48-0.59 0.68-0.2 0.2-0.51 0.31-0.81 0.31s-0.58-0.1-0.68-0.4-0.21-0.7-0.21-1.4v-10.99h-3.4v11.21c0 1.4 0.21 2.39 0.71 3.09s1.18 1 2.18 1c1.39 0 2.51-0.69 3.21-2.09h0.09l0.28 1.78h2.62v-14.99s-3.4 0-3.4-0.09zm20.9 2.09c0.4 0 0.58 0.11 0.78 0.31 0.2 0.3 0.3 0.59 0.4 1.09s0.09 1.21 0.09 2.21v1.09h-2.5v-1.09c0-1 0-1.71 0.09-2.21 0-0.4 0.11-0.8 0.31-1 0.2-0.3 0.51-0.4 0.81-0.4zm-50.49 0.12c0.5 0 0.8 0.18 1 0.68 0.19 0.5 0.28 1.3 0.28 2.4v4.68c0 1.1-0.08 1.9-0.28 2.4s-0.5 0.68-1 0.68-0.79-0.18-0.99-0.68-0.31-1.3-0.31-2.4v-4.68c0-1.1 0.11-1.9 0.31-2.4s0.49-0.68 0.99-0.68zm39.68 0.09c0.3 0 0.61 0.1 0.81 0.4s0.27 0.67 0.37 1.37c0.1 0.6 0.12 1.51 0.12 2.71l0.09 1.9c0 1.1 0 1.99-0.09 2.59-0.1 0.6-0.19 1.08-0.49 1.28-0.2 0.3-0.5 0.4-0.9 0.4-0.3 0-0.51-0.08-0.81-0.18-0.2-0.1-0.39-0.29-0.59-0.59v-8.5c0.1-0.4 0.29-0.7 0.59-1s0.6-0.4 0.9-0.4z'/%3E%3C/svg%3E");
+    background-position: 50%;
+    background-size: auto 1rem;
+    background-repeat: no-repeat;
+    border-bottom-right-radius: .125rem;
+    border-top-right-radius: .125rem;
+    transition: background-color .25s cubic-bezier(0,0,.2,1);
 }
 
 /* logo:hover */
 .yt-lazyload-logo:hover{
-    background-color:rgba(23,23,23,1);
-    transition:background-color .1s cubic-bezier(.4,0,1,1);
+    background-color: rgba(23,23,23,1);
+    transition: background-color .1s cubic-bezier(.4,0,1,1);
 }
 
 /* iframe */
 .yt-lazyload iframe{
-    width:100%!important;
-    height:100%!important;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:4;
-    border:0;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    border: 0;
 }
 
 /* title */
 .yt-lazyload-title{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    z-index:1;
-    padding:1rem;
-    background-image:linear-gradient(to bottom,rgba(12,12,12,.8) 0,transparent 100px);
-    color:#eee;
-    font-size:1.125rem;
-    line-height:1.3;
-    text-shadow:0 0 2px rgba(0,0,0,.5);
-    opacity:0;
-    transition:opacity .25s cubic-bezier(0,0,.2,1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: 1rem;
+    background-image: linear-gradient(to bottom,rgba(12,12,12,.8) 0,transparent 100px);
+    color: var(--yt-lazyload-title-color,#eee);
+    font-size: 1.125rem;
+    line-height: 1.3;
+    text-shadow: 0 0 2px rgba(0,0,0,.5);
+    opacity: 0;
+    transition: opacity .25s cubic-bezier(0,0,.2,1);
 }
 
 /* container:hover title */
 .yt-lazyload:hover .yt-lazyload-title{
-    opacity:1;
-    transition:opacity .1s cubic-bezier(.4,0,1,1);
+    opacity: 1;
+    transition: opacity .1s cubic-bezier(.4,0,1,1);
 }
 
 
@@ -161,7 +175,7 @@
             <div class="yt-lazyload" data-id="aDoanNM7O_s" aria-label="The Lost Forest | Nobel Peace Prize Shorts"></div>
         </article>
         <article class="col">
-            <div class="yt-lazyload img-thumbnail shadow" data-id="v64KOxKVLVg" data-thumbX="" aria-label="360° Underwater National Park | National Geographic"></div>
+            <div class="yt-lazyload img-thumbnail shadow" data-id="v64KOxKVLVg" aria-label="360° Underwater National Park | National Geographic"></div>
         </article>
     </section>
     <section class="row row-cols-lg-3 row-cols-md-1 g-4 mb-5">
@@ -220,12 +234,12 @@
 (function(){
     /*
      * IDEAS:
-     * - 
+     * - error handling [???]
      * - 
      */
     
     /********************************************************************
-    ************************** MAIN VARIABLES ***************************
+                            MAIN VARIABLES
     *********************************************************************/
     var youtube = document.querySelectorAll('.yt-lazyload'),
     
@@ -246,11 +260,11 @@
     
     
     /********************************************************************
-    ************************ IF ELEMENTS EXIST **************************
+                            IF ELEMENTS EXIST
     *********************************************************************/
     if(youtube.length > 0){
         
-        //create elements
+        //Create elements
         template_wrap       = document.createElement('div');
         template_content    = document.createElement('div');
         template_title      = document.createElement('div');
@@ -258,7 +272,7 @@
         template_logo       = document.createElement('a');
         template_iframe     = document.createElement('iframe');
         
-        //set attributes
+        //Set attributes
         template_wrap.classList.add('yt-lazyload-wrap');
         template_content.classList.add('yt-lazyload-content');
         
@@ -269,18 +283,19 @@
         template_logo.target = '_blank';
         template_logo.rel    = 'noreferrer';
         
+        template_iframe.title = 'YouTube video player';
         template_iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
         template_iframe.setAttribute('allowfullscreen','');
         
         
         /********************************************************************
-        ********************* INTERSECTION OBSERVER API *********************
+                            INTERSECTION OBSERVER API
         *********************************************************************/
         youtube_observer = new IntersectionObserver(function(elements){
         
             elements.forEach(function(e){
                 
-                //VARIABLES
+                //Variables
                 var this_element,
                     this_wrap,
                     this_content,
@@ -295,10 +310,10 @@
                     this_data_title;
 
 
-                //if element appears in viewport
+                //If element appears in viewport
                 if(e.isIntersecting === true){
                     
-                    //variables
+                    //Variables
                     this_element    = e.target;
                     this_data_id    = e.target.dataset.id;
                     this_data_thumb = e.target.dataset.thumb;
@@ -310,44 +325,44 @@
                         this_data_thumb = '';
                     }
 
-                    //wrap
+                    //Wrap
                     this_wrap = template_wrap.cloneNode();
                     this_element.append(this_wrap);
                     
-                    //content
+                    //Content
                     this_content = template_content.cloneNode();
                     this_wrap.append(this_content);
                     
-                    //background-image
-                    this_content.style.setProperty('--yt-lazyload-img','url("' + settings_thumb_base_url + this_data_id + this_data_thumb + '.' + settings_thumb_extension + '")');
+                    //Background-image
+                    this_content.style.setProperty('--yt-lazyload-img',`url("${settings_thumb_base_url}${this_data_id}${this_data_thumb}.${settings_thumb_extension}")`);
                     
-                    //play btn
+                    //Play btn
                     this_playbtn = template_playbtn.cloneNode();
                     this_content.append(this_playbtn);
 
-                    //if element width >= settings_width_threshold
+                    //If element width >= settings_width_threshold
                     if(this_element.getBoundingClientRect().width >= settings_width_threshold){
                     
-                        //title
+                        //Title
                         if(this_data_title){
                             this_title = template_title.cloneNode();
                             this_title.textContent = this_data_title;
                             this_content.append(this_title);
                         }
 
-                        //logo link
+                        //Logo link
                         if(this_data_logo !== '0'){
                             this_logo       = template_logo.cloneNode();
-                            this_logo.href  = 'https://youtu.be/' + this_data_id;
+                            this_logo.href  = `https://youtu.be/${this_data_id}`;
                             this_content.append(this_logo);
                         }
 
                     }
 
-                    //onclick create iframe
+                    //Onclick create iframe
                     this_playbtn.addEventListener('click',function(){
                         this_iframe     = template_iframe.cloneNode();
-                        this_iframe.src = 'https://www.youtube.com/embed/' + this_data_id + '?autoplay=1';
+                        this_iframe.src = `https://www.youtube.com/embed/${this_data_id}?autoplay=1`;
                         this_content.append(this_iframe);
                     });
                     
@@ -355,7 +370,7 @@
                     youtube_observer.unobserve(this_element);
                     
                     //LOG
-                    //console.log('DONE - ' + this_data_id);
+                    //console.log(`DONE - ${this_data_id}`);
                 }
                 
             });
@@ -366,7 +381,7 @@
         
         
         /********************************************************************
-        ********************* ITERATE THROUGH ELEMENTS **********************
+                            ITERATE THROUGH ELEMENTS
         *********************************************************************/
         youtube.forEach(function(e){
             
